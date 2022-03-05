@@ -52,10 +52,14 @@ a workaround is welcome.
 
 Test the installation with
 
-    sudo /etc/cron.daily/xt_geoip
     sudo modprobe xt_geoip
     lsmod | grep ^xt_geoip
     sudo iptables -m geoip -h
+    sudo /etc/cron.daily/xt_geoip
+    ls /usr/share/xt_geoip/
+
+This leaves the file `dbip-country-lite.csv` behind which is harmless and will
+be overridden with the next update. Note that it is 25 MB in size.
 
 WARNING: The following commands can lock you and all others out of your machine!
 
