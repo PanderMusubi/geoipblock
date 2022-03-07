@@ -5,9 +5,29 @@ describes how to use xtables-addons to drop incoming and outgoing packages for
 all or certain ports. See also
 https://inai.de/projects/xtables-addons/geoip.php for more documentation.
 
-## Ubuntu 21.10 with xtables-addons 3.18
+## Debian 11 Bullseye
 
-Install packages with
+This distribution offers xtables-addons 3.13. Install packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
+## Ubuntu 21.10 Impish Indri
+
+This distribution offers xtables-addons 3.18. Install packages with
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
 
@@ -24,9 +44,9 @@ and give that file execution rights with
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
-## Ubuntu 20.04 LTS with xtables-addons 3.9
+## Ubuntu 20.04 LTS Focal Fossa
 
-Install packages with
+This distribution offers xtables-addons 3.9. Install packages with
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo chmod a+x /usr/lib/xtables-addons/xt_geoip_build
@@ -45,11 +65,12 @@ and give that file execution rights with
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
-## Ubuntu 18.04 LTS with xtables-addons 3.0
+## Ubuntu 18.04 LTS Bionic Beaver
 
-Here xtables-addons uses only the maxmind geo IP database. However, that
-database is now available under another URL than xtables-addons needs it to be.
-Additionally, this version of xtables-addons is rather old to what is available.
+This distribution offers xtables-addons 3.0. Here xtables-addons uses only the
+maxmind geo IP database. However, that database is now available under another
+URL than xtables-addons needs it to be. Additionally, this version of
+xtables-addons is rather old to what is available.
 
 This manual has not have a workaround for the database issue, but contributing
 a workaround is welcome.
@@ -126,10 +147,6 @@ Change both files by only adding these two lines
     ...
     -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     COMMIT
-
-(QUESTION Use INPUT here with -I or -A?)
-
-(QUESTION Add line :GEOIP - [0:0] directly after :OUTPUT?)
 
 Store and activate the new configuration with
 
