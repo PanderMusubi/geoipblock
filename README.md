@@ -32,9 +32,12 @@ Install packages with
 Create the file `/etc/cron.daily/xt_geoip` containing
 
     #!/bin/sh -e
-    rm -f dbip-country-lite.csv.gz dbip-country-lite.csv
+
+    workdir=$(mktemp -d)
+    cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
+    cd ${HOME}  && rm -rf ${workdir}
 
 and give that file execution rights with
 
