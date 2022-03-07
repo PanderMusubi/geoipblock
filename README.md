@@ -32,6 +32,7 @@ Install packages with
 Create the file `/etc/cron.daily/xt_geoip` containing
 
     #!/bin/sh -e
+    rm -f dbip-country-lite.csv.gz dbip-country-lite.csv
     /usr/lib/xtables-addons/xt_geoip_dl
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
 
@@ -110,7 +111,7 @@ This can result in an empty file or something that looks like
     COMMIT
     # Completed on ...
 
-Change that into
+Change that by only adding these two lines
 
     *filter
     :INPUT ACCEPT [0:0]
@@ -120,6 +121,8 @@ Change that into
     ...
     -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     COMMIT
+
+(TODO INPUT here with -I or -A?)
 
 (TODO add line :GEOIP - [0:0] directly after :OUTPUT ?)
 
