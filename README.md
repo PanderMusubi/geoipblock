@@ -14,8 +14,11 @@ Install packages with
 Create the file `/etc/cron.daily/xt_geoip` containing
 
     #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -32,12 +35,11 @@ Install packages with
 Create the file `/etc/cron.daily/xt_geoip` containing
 
     #!/bin/sh -e
-
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
-    cd ${HOME}  && rm -rf ${workdir}
+    cd ${HOME} && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -73,13 +75,13 @@ of `XX,YY` below.
 
 Block incoming packages by adding these rules
 
-    #UNTESTEDiptables -I INPUT -m geoip --src-cc XX,YY -j DROP
-    #UNTESTEDip6tables -I INPUT -m geoip --src-cc XX,YY -j DROP
+    iptables -I INPUT -m geoip --src-cc XX,YY -j DROP
+    ip6tables -I INPUT -m geoip --src-cc XX,YY -j DROP
 
 Also block outgoing packages by adding these rules
 
-    #UNTESTEDiptables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
-    #UNTESTEDip6tables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
+    iptables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
+    ip6tables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
 
 All rules can be listed with
 
@@ -114,7 +116,7 @@ This can result in an empty file or something that looks like
     COMMIT
     # Completed on ...
 
-Change that by only adding these two lines
+Change both files by only adding these two lines
 
     *filter
     :INPUT ACCEPT [0:0]
@@ -125,28 +127,22 @@ Change that by only adding these two lines
     -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     COMMIT
 
-(TODO INPUT here with -I or -A?)
+(QUESTION Use INPUT here with -I or -A?)
 
-(TODO add line :GEOIP - [0:0] directly after :OUTPUT ?)
+(QUESTION Add line :GEOIP - [0:0] directly after :OUTPUT?)
 
-(TODO example ip6tables)
-
-Store and activate (TODO?) the new configuration with
+Store and activate the new configuration with
 
     iptables-restore < rules
     ip6tables-restore < rules6
+
+Check the resulting changes with
+
+    sudo iptables -L -v
+    sudo ip6tables -L -v
 
 ## Troubleshooting
 
 Effect of the test or persistent configuration can be monitored with
 
-    sudo iptables -L -v
     tail -f /var/log/kern.log 
-
-## TODO
-
-Omit (allow) specific tcp ports:
-- https://superuser.com/questions/152829/block-all-ports-except-ssh-http-in-ipchains-and-iptables/152830#152830
-- https://superuser.com/questions/319589/how-do-i-block-all-ports-except-22-and-80-in-fedoras-iptables/319675#319675
-- https://superuser.com/questions/1310059/how-can-i-block-all-ports-except-22-80-443-to-all-incoming-traffic-except-localh/1310107#1310107
-- https://superuser.com/questions/769814/how-to-block-all-ports-except-80-443-with-iptables/770191#770191
