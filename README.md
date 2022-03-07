@@ -44,6 +44,37 @@ and give that file execution rights with
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
+## Ubuntu 21.04 Hirsute Hippo
+
+This distribution offers xtables-addons 3.13. Install packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
+Unfortunately, the first test below `sudo modprobe xt_geoip` fails with the
+error
+
+   modprobe: FATAL: Module xt_geoip not found in directory /lib/modules/4.14.264
+
+This is on an armv7l architecture which has that kernel but only the directory
+`/lib/modules/5.11.0-49-generic`.
+
+This manual has not have a workaround for the kernel module issue, but
+contributing a workaround is welcome.
+
 ## Ubuntu 20.04 LTS Focal Fossa
 
 This distribution offers xtables-addons 3.9. Install packages with
