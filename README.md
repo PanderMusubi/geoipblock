@@ -116,9 +116,6 @@ Test the installation with
     sudo /etc/cron.daily/xt_geoip
     ls /usr/share/xt_geoip/
 
-This leaves the file `dbip-country-lite.csv` behind which is harmless and will
-be overridden with the next update. Note that it is 25 MB in size.
-
 WARNING: The following commands can lock you and all others out of your machine!
 
 Look up the country codes of the countries to block at https://db-ip.com/faq.php
@@ -139,6 +136,15 @@ All rules can be listed with
 
     sudo iptables -L --line-numbers
     sudo ip6tables -L --line-numbers
+
+Testing can be done on a mobile device by using a free VPN from
+Android app stores such as
+[Google Play](https://play.google.com/store/apps/details?id=ch.protonvpn.android)
+and
+[F-Droid](https://f-droid.org/en/packages/ch.protonvpn.android/) or the
+[App Store](https://apps.apple.com/us/app/protonvpn-fast-secure-vpn/id1437005085)
+for iOS. This might not offer the specific countries to block, but for testing
+temporarily via the freely available countries, this is useful.
 
 Rules can be deleted with
 
