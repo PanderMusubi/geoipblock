@@ -195,6 +195,14 @@ Check the resulting changes with
     sudo iptables -L -v
     sudo ip6tables -L -v
 
+## Optimization
+
+At the end of the file `/etc/cron.daily/xt_geoip` add this line
+
+    cd /usr/share/xt_geoip/ && rm !(XX.iv?|YY.iv?)
+
+which removes files for countries that are not to be blocked.
+
 ## Troubleshooting
 
 Effect of the test or persistent configuration can be monitored with
