@@ -197,9 +197,9 @@ Check the resulting changes with
 
 ## Optimization
 
-At the end of the file `/etc/cron.daily/xt_geoip` add this line
+Replace the last line of the file `/etc/cron.daily/xt_geoip` with
 
-    cd /usr/share/xt_geoip/ && rm !(XX.iv?|YY.iv?)
+    cd /usr/share/xt_geoip/ && rm !(XX.iv?|YY.iv?) && rm -rf ${workdir}
 
 which removes files for countries that are not to be blocked.
 
