@@ -5,26 +5,6 @@ describes how to use xtables-addons to drop incoming and outgoing packages for
 all or certain ports. See also
 https://inai.de/projects/xtables-addons/geoip.php for more documentation.
 
-## Debian 11 Bullseye
-
-This distribution offers xtables-addons 3.13. Install packages with
-
-    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
-    sudo mkdir /usr/share/xt_geoip/
-
-Create the file `/etc/cron.daily/xt_geoip` containing
-
-    #!/bin/sh -e
-    workdir=$(mktemp -d)
-    cd ${workdir}
-    /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
-
-and give that file execution rights with
-
-    sudo chmod a+x /etc/cron.daily/xt_geoip
-
 ## Ubuntu 21.10 Impish Indri
 
 This distribution offers xtables-addons 3.18. Install packages with
@@ -64,17 +44,6 @@ and give that file execution rights with
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
-Unfortunately, the first test below `sudo modprobe xt_geoip` fails with the
-error
-
-   modprobe: FATAL: Module xt_geoip not found in directory /lib/modules/4.14.264
-
-This is on an armv7l architecture which has that kernel but only the directory
-`/lib/modules/5.11.0-49-generic`.
-
-This manual has not have a workaround for the kernel module issue, but
-contributing a workaround is welcome.
-
 ## Ubuntu 20.04 LTS Focal Fossa
 
 This distribution offers xtables-addons 3.9. Install packages with
@@ -106,6 +75,25 @@ xtables-addons is rather old to what is available.
 This manual has not have a workaround for the database issue, but contributing
 a workaround is welcome.
 
+## Debian 11 Bullseye
+
+This distribution offers xtables-addons 3.13. Install packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
 ## Testing
 
 Test the installation with
@@ -199,9 +187,13 @@ Check the resulting changes with
 
 Replace the last line of the file `/etc/cron.daily/xt_geoip` with
 
-    cd /usr/share/xt_geoip/ && rm !(XX.iv?|YY.iv?) && rm -rf ${workdir}
+    cd /usr/share/xt_geoip/ && rm $(ls|grep -v XX|grep -v YY) && rm -rf ${workdir}
 
 which removes files for countries that are not to be blocked.
+
+QUESTION: Using `rm !(XX.iv?|YY.iv?)` in this cron file results in the error
+`Syntax error: "(" unexpected`, hence the use of `grep`. Contribution how to fix
+this is welcome.
 
 ## Troubleshooting
 
