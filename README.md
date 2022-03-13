@@ -199,4 +199,10 @@ this is welcome.
 
 Effect of the test or persistent configuration can be monitored with
 
-    tail -f /var/log/kern.log 
+    tail -f /var/log/kern.log
+
+## See also
+
+See also and preferably give a thumbs up for the following issues:
+- https://gitlab.nic.cz/turris/reforis/reforis/-/issues/379
+- https://github.com/openwrt/luci/issues/5722
