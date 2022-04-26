@@ -5,6 +5,46 @@ describes how to use xtables-addons to drop incoming and outgoing packages for
 all or certain ports. See also
 https://inai.de/projects/xtables-addons/geoip.php for more documentation.
 
+## Ubuntu 22.04 LTS Jammy Jellyfish
+
+This distribution offers xtables-addons 3.19. Install packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
+## Ubuntu 21.04 Hirsute Hippo
+
+This distribution offers xtables-addons 3.13. Install packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
 ## Ubuntu 21.10 Impish Indri
 
 This distribution offers xtables-addons 3.18. Install packages with
