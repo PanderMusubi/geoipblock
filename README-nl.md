@@ -1,20 +1,20 @@
-_Voor Nederlands, zie [README-nl.md](README-nl.md)_
+_For English, see [README.md](README.md)_
 
 # geoipblock
 
-Block network traffic for IP addresses of specific countries. This manual
-describes how to use xtables-addons to drop incoming and outgoing network
-packages for all ports. See also
-https://inai.de/projects/xtables-addons/geoip.php for more documentation.
+Blokkeer netwerkverkeer  op IP-adres voor bepaalde landen. Deze handleiding
+beschrijft hoe xtables-addons te gebruiken om inkomende en uitgaande
+netwerkpakketten tegen te houden voor alle poorten. Zie ook
+https://inai.de/projects/xtables-addons/geoip.php voor meer documentatie.
 
 ## Ubuntu 22.04 LTS Jammy Jellyfish
 
-This distribution offers xtables-addons 3.19. Install software packages with
+Deze distributie biedt xtables-addons 3.19. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -23,18 +23,18 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/libexec/xtables-addons/xt_geoip_build -s
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 21.04 Hirsute Hippo
 
-This distribution offers xtables-addons 3.13. Install software packages with
+Deze distributie biedt xtables-addons 3.13. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -43,17 +43,17 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/libexec/xtables-addons/xt_geoip_build -s
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 21.10 Impish Indri
 
-This distribution offers xtables-addons 3.18. Install software packages with
+Deze distributie biedt xtables-addons 3.18. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -62,18 +62,18 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/libexec/xtables-addons/xt_geoip_build -s
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 21.04 Hirsute Hippo
 
-This distribution offers xtables-addons 3.13. Install software packages with
+Deze distributie biedt xtables-addons 3.13. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -82,19 +82,19 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/libexec/xtables-addons/xt_geoip_build -s
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 20.04 LTS Focal Fossa
 
-This distribution offers xtables-addons 3.9. Install software packages with
+Deze distributie biedt xtables-addons 3.9. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo chmod a+x /usr/lib/xtables-addons/xt_geoip_build
     sudo mkdir /usr/share/xt_geoip/
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -103,28 +103,28 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 18.04 LTS Bionic Beaver
 
-This distribution offers xtables-addons 3.0. Here xtables-addons uses only the
-maxmind geo IP database. However, that database is now available under another
-URL than xtables-addons expects. Additionally, this version of xtables-addons is
-rather old.
+Deze distributie biedt xtables-addons 3.0. xtables-addons gebruikt hier alleen
+de maxmind geo IP database. Echter, die database is nu beschikbaar via een
+andere URL dan xtables-addons verwachtneeds it to be. Verder is deze versie van
+xtables-addons nogal oud.
 
-This manual has not have a workaround for the database issue, but contributing
-a workaround is welcome.
+Deze handleiding heeft geen oplossing voor het issue met de database, maar het
+bijdragen van een oplossing is welkom.
 
 ## Debian 11 Bullseye
 
-This distribution offers xtables-addons 3.13. Install software packages with
+Deze distributie biedt xtables-addons 3.13. Installeer softwarepakketten met
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
 
-Create the file `/etc/cron.daily/xt_geoip` containing
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
 
     #!/bin/sh -e
     workdir=$(mktemp -d)
@@ -133,13 +133,13 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     /usr/libexec/xtables-addons/xt_geoip_build -s
     cd ${HOME} && rm -rf ${workdir}
 
-and give that file execution rights with
+en geef dat bestand uitvoeringsrechten met
 
     sudo chmod a+x /etc/cron.daily/xt_geoip
 
-## Testing
+## Testen
 
-Test the installation with
+Test de installatie met
 
     sudo modprobe xt_geoip
     lsmod | grep ^xt_geoip
@@ -147,54 +147,55 @@ Test the installation with
     sudo /etc/cron.daily/xt_geoip
     ls /usr/share/xt_geoip/
 
-WARNING: The following commands can lock you and all others out of your machine!
+WAARSCHUWING: De volgende commando's kunnen jou en alle anderen van je systeem
+buitensluiten!
 
-Look up the country codes of the countries to block at https://db-ip.com/faq.php
-and note there are also some additional codes available. Use the codes instead
-of `XX,YY` below.
+Zoekde landcodes op van de te blokkeren landen op https://db-ip.com/faq.php
+en let op dat er ook een aantal extra codes beschikbaar zijn. Gebruik de codes
+in plaats van `XX,YY` hieronder.
 
-Block incoming network packages by adding these rules
+Blokkeer inkomende netwerkpakketten door deze regels (rules) toe te voegen
 
     iptables -I INPUT -m geoip --src-cc XX,YY -j DROP
     ip6tables -I INPUT -m geoip --src-cc XX,YY -j DROP
 
-Also block outgoing network packages by adding these rules
+Blokkeer ook uitgaande netwerkpakketten door deze regels (rules) toe te voegen
 
     iptables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     ip6tables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
 
-All rules can be listed with
+Alle regels (rules) kunnen worden getoond met
 
     sudo iptables -L --line-numbers
     sudo ip6tables -L --line-numbers
 
-Testing can be done for example on a mobile device by using a free VPN from
-Android app stores such as
+Er kan bijvoorbeeld getest worden op een mobiel apparaat met een gratis VPN van
+Android-appstores zoals
 [Google Play](https://play.google.com/store/apps/details?id=ch.protonvpn.android)
-and
-[F-Droid](https://f-droid.org/en/packages/ch.protonvpn.android/) or the
+en
+[F-Droid](https://f-droid.org/en/packages/ch.protonvpn.android/) of de
 [App Store](https://apps.apple.com/us/app/protonvpn-fast-secure-vpn/id1437005085)
-for iOS. This might not offer the specific countries to block, but for testing
+voor iOS. This might not offer the specific countries to block, but for testing
 temporarily via the freely available countries, this is useful.
 
-Rules can be deleted with
+Regels (rules) kunnen worden verwijderd met
 
     sudo iptables -D INPUT 1
     sudo iptables -D OUTPUT 1
     sudo ip6tables -D INPUT 1
     sudo ip6tables -D OUTPUT 1
 
-where the number is the line number of the rule to delete.    
+waar het nummer het regelnummer is van de regel (rule) die verwijderd moet worden.
 
-## Configuration
+## Configuratie
 
-Make the iptables command persistent by first saving the current configuration
-with
+Maak het iptables-commando blijvend door eerst de huidige configuratie op te
+slaan met
 
     iptables-save > rules
     ip6tables-save > rules6
 
-This can result in an empty file or something that looks like
+Dit kan resulteren in een leeg bestand of iets dat eruitziet als
 
     # Generated by iptables-save ...
     *filter
@@ -205,7 +206,7 @@ This can result in an empty file or something that looks like
     COMMIT
     # Completed on ...
 
-Change both files by only adding these two lines
+Wijzig beide bestanden door alleen de volgende twee regels toe te voegen
 
     *filter
     :INPUT ACCEPT [0:0]
@@ -216,31 +217,31 @@ Change both files by only adding these two lines
     -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     COMMIT
 
-Store and activate the new configuration with
+Sla op en activeer de nieuwe configuratie met
 
     iptables-restore < rules
     ip6tables-restore < rules6
 
-Check the resulting changes with
+Controleer de resulterende wijzigingen met
 
     sudo iptables -L -v
     sudo ip6tables -L -v
 
-## Optimization
+## Optimalisatie
 
-Replace the last line of the file `/etc/cron.daily/xt_geoip` with
+Vervang de laatste regen in het bestand `/etc/cron.daily/xt_geoip` met
 
     cd /usr/share/xt_geoip/ && rm $(ls|grep -v XX|grep -v YY) && rm -rf ${workdir}
 
-which removes files for countries that are not to be blocked.
+die bestanden verwijderd voor de landen die niet geblokkeerd moeten worden.
 
-QUESTION: Using `rm !(XX.iv?|YY.iv?)` in this cron file results in the error
-`Syntax error: "(" unexpected`, hence the use of `grep`. Contribution how to fix
-this is welcome.
+VRAAG: Gebruiken van `rm !(XX.iv?|YY.iv?)` in dit cron-bestand resulteert in de
+fout `Syntax error: "(" unexpected`, vandaar het gebruik van `grep`. Bijdragen
+om dit te fiksen zijn welkom.
 
-## Troubleshooting
+## Probleemoplossen
 
-Effect of the test or persistent configuration can be monitored with
+Effect van een test of blijvende configuratie kan worden gemonitord met
 
     tail -f /var/log/kern.log
 
