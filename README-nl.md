@@ -7,6 +7,28 @@ beschrijft hoe xtables-addons te gebruiken om inkomende en uitgaande
 netwerkpakketten tegen te houden voor alle poorten. Zie ook
 https://inai.de/projects/xtables-addons/geoip.php voor meer documentatie.
 
+(Voor Debian, zie verder onderaan.)
+
+## Ubuntu 22.10 Kinetic Kudu
+
+Deze distributie biedt xtables-addons 3.21. Installeer softwarepakketten met
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd ${HOME} && rm -rf ${workdir}
+
+en geef dat bestand uitvoeringsrechten met
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
 ## Ubuntu 22.04 LTS Jammy Jellyfish
 
 Deze distributie biedt xtables-addons 3.19. Installeer softwarepakketten met
