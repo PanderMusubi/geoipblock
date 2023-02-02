@@ -9,6 +9,11 @@ https://inai.de/projects/xtables-addons/geoip.php voor meer documentatie.
 
 (Voor Debian, zie verder onderaan.)
 
+## Ubuntu 23.04 Lunar Lobster
+
+Deze distributie biedt xtables-addons 3.23.  Deze distributie is nog niet
+uitgebracht.
+
 ## Ubuntu 22.10 Kinetic Kudu
 
 Deze distributie biedt xtables-addons 3.21. Installeer softwarepakketten met
@@ -139,6 +144,11 @@ xtables-addons nogal oud.
 Deze handleiding heeft geen oplossing voor het issue met de database, maar het
 bijdragen van een oplossing is welkom.
 
+## Debian 12 Bookworm
+
+Deze distributie biedt xtables-addons 3.23. Deze distributie is nog niet
+uitgebracht.
+
 ## Debian 11 Bullseye
 
 Deze distributie biedt xtables-addons 3.13. Installeer softwarepakketten met
@@ -266,4 +276,11 @@ om dit te fiksen zijn welkom.
 Effect van een test of blijvende configuratie kan worden gemonitord met
 
     tail -f /var/log/kern.log
+
+## Zie ook
+
+Zie ook:
+- https://packages.ubuntu.com/search?keywords=xtables-addons
+- https://packages.debian.org/search?keywords=xtables-addons
+- https://software.opensuse.org/package/xtables-addons
 
