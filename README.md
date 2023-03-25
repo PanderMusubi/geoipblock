@@ -4,7 +4,8 @@ _Voor Nederlands, zie [README-nl.md](README-nl.md)_
 
 Block network traffic for IP addresses of specific countries.
 
-> <em>The only good is knowledge and the only evil is ignorance.</em> — Socrates (469 – 399 BC) Greek philosopher in Athens
+> <em>The only good is knowledge and the only evil is ignorance.</em> — Socrates
+(469 – 399 BC) Greek philosopher in Athens
 
 This manual describes how to use xtables-addons to drop incoming and outgoing network
 packages for all ports. See also

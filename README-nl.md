@@ -4,7 +4,8 @@ _For English, see [README.md](README.md)_
 
 Blokkeer netwerkverkeer op IP-adres voor bepaalde landen.
 
-> <em>Het enige goed is kennis en het enige kwaad is onwetendheid.</em> — Socrates (469 – 399 v.Chr.) Griekse filosoof in Athene
+> <em>Het enige goed is kennis en het enige kwaad is onwetendheid.</em> —
+Socrates (469 – 399 v.Chr.) Griekse filosoof in Athene
 
 Deze handleiding beschrijft hoe xtables-addons te gebruiken om inkomende en
 uitgaande netwerkpakketten tegen te houden voor alle poorten voor bepaalde
