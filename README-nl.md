@@ -2,10 +2,14 @@ _For English, see [README.md](README.md)_
 
 # geoipblock
 
-Blokkeer netwerkverkeer  op IP-adres voor bepaalde landen. Deze handleiding
-beschrijft hoe xtables-addons te gebruiken om inkomende en uitgaande
-netwerkpakketten tegen te houden voor alle poorten. Zie ook
-https://inai.de/projects/xtables-addons/geoip.php voor meer documentatie.
+Blokkeer netwerkverkeer op IP-adres voor bepaalde landen.
+
+> <em>Het enige goed is kennis en het enige kwaad is onwetendheid.</em> — Socrates (469 – 399 v.Chr.) Griekse filosoof in Athene
+
+Deze handleiding beschrijft hoe xtables-addons te gebruiken om inkomende en
+uitgaande netwerkpakketten tegen te houden voor alle poorten voor bepaalde
+landen. Zie ook https://inai.de/projects/xtables-addons/geoip.php voor meer
+documentatie.
 
 (Voor Debian, zie verder onderaan.)
 
@@ -184,7 +188,9 @@ buitensluiten!
 
 Zoekde landcodes op van de te blokkeren landen op https://db-ip.com/faq.php
 en let op dat er ook een aantal extra codes beschikbaar zijn. Gebruik de codes
-in plaats van `XX,YY` hieronder.
+in plaats van `XX,YY` hieronder. Up to and including version 3.23, the maximum
+number of countries to block is fifteen. The maximum number of countries for
+newer versions is 31.
 
 Blokkeer inkomende netwerkpakketten door deze regels (rules) toe te voegen
 

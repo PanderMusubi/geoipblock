@@ -2,8 +2,11 @@ _Voor Nederlands, zie [README-nl.md](README-nl.md)_
 
 # geoipblock
 
-Block network traffic for IP addresses of specific countries. This manual
-describes how to use xtables-addons to drop incoming and outgoing network
+Block network traffic for IP addresses of specific countries.
+
+> <em>The only good is knowledge and the only evil is ignorance.</em> — Socrates (469 – 399 BC) Greek philosopher in Athens
+
+This manual describes how to use xtables-addons to drop incoming and outgoing network
 packages for all ports. See also
 https://inai.de/projects/xtables-addons/geoip.php for more documentation.
 
@@ -183,7 +186,9 @@ WARNING: The following commands can lock you and all others out of your machine!
 
 Look up the country codes of the countries to block at https://db-ip.com/faq.php
 and note there are also some additional codes available. Use the codes instead
-of `XX,YY` below.
+of `XX,YY` below. Up to and including version 3.23, the maximum number of
+countries to block is fifteen. The maximum number of countries for newer
+versions is 31.
 
 Block incoming network packages by adding these rules
 
