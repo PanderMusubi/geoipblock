@@ -9,7 +9,8 @@ Block network traffic for IP addresses of specific countries.
 
 This manual describes how to use xtables-addons to drop incoming and outgoing network
 packages for all ports. See also
-https://inai.de/projects/xtables-addons/geoip.php for more documentation.
+https://inai.de/projects/xtables-addons/geoip.php and
+https://codeberg.org/jengelh/xtables-addons for more information.
 
 (For Debian, see below.)
 
@@ -32,7 +33,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -52,7 +53,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -72,7 +73,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -91,7 +92,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -111,7 +112,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -132,7 +133,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -167,7 +168,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 and give that file execution rights with
 
@@ -288,4 +289,6 @@ See also:
 - https://packages.ubuntu.com/search?keywords=xtables-addons
 - https://packages.debian.org/search?keywords=xtables-addons
 - https://software.opensuse.org/package/xtables-addons
+- https://wiki.ubuntu.com/Releases
+- https://wiki.debian.org/DebianReleases
 

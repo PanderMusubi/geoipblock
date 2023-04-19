@@ -9,10 +9,10 @@ Socrates (469 – 399 v.Chr.) Griekse filosoof in Athene
 
 Deze handleiding beschrijft hoe xtables-addons te gebruiken om inkomende en
 uitgaande netwerkpakketten tegen te houden voor alle poorten voor bepaalde
-landen. Zie ook https://inai.de/projects/xtables-addons/geoip.php voor meer
-documentatie.
+landen. Zie ook https://inai.de/projects/xtables-addons/geoip.php en
+https://codeberg.org/jengelh/xtables-addons voor meer informatie.
 
-(Voor Debian, zie verder onderaan.)
+(Voor Debian, zie verder naar onderen.)
 
 ## Ubuntu 23.04 Lunar Lobster
 
@@ -33,7 +33,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -53,7 +53,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -73,7 +73,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -92,7 +92,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -112,7 +112,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -133,7 +133,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
     /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -168,7 +168,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
     /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd ${HOME} && rm -rf ${workdir}
+    cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
 
@@ -290,4 +290,6 @@ Zie ook:
 - https://packages.ubuntu.com/search?keywords=xtables-addons
 - https://packages.debian.org/search?keywords=xtables-addons
 - https://software.opensuse.org/package/xtables-addons
+- https://wiki.ubuntu.com/Releases
+- https://wiki.debian.org/DebianReleases
 
