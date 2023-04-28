@@ -16,8 +16,23 @@ https://codeberg.org/jengelh/xtables-addons voor meer informatie.
 
 ## Ubuntu 23.04 Lunar Lobster
 
-Deze distributie biedt xtables-addons 3.23.  Deze distributie is nog niet
-uitgebracht.
+Deze distributie biedt xtables-addons 3.23. Installeer softwarepakketten met
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd && rm -rf ${workdir}
+
+en geef dat bestand uitvoeringsrechten met
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Ubuntu 22.10 Kinetic Kudu
 
@@ -277,6 +292,14 @@ die bestanden verwijderd voor de landen die niet geblokkeerd moeten worden.
 VRAAG: Gebruiken van `rm !(XX.iv?|YY.iv?)` in dit cron-bestand resulteert in de
 fout `Syntax error: "(" unexpected`, vandaar het gebruik van `grep`. Bijdragen
 om dit te fiksen zijn welkom.
+
+## De-installatie
+
+De-installatie kan worden gedaan met
+
+    sudo apt-get purge xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo apt-get -y autoremove
+    sudo rm -rf /usr/share/xt_geoip/
 
 ## Probleemoplossen
 
