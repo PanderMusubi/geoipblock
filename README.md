@@ -203,9 +203,7 @@ WARNING: The following commands can lock you and all others out of your machine!
 
 Look up the country codes of the countries to block at https://db-ip.com/faq.php
 and note there are also some additional codes available. Use the codes instead
-of `XX,YY` below. Up to and including version 3.23, the maximum number of
-countries to block is fifteen. The maximum number of countries for newer
-versions is 31.
+of `XX,YY` below. An example is `BY,IR,KP,RU`.
 
 Block incoming network packages by adding these rules
 
@@ -217,7 +215,9 @@ Also block outgoing network packages by adding these rules
     iptables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     ip6tables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
 
-All rules can be listed with
+Up to and including version 3.23, the maximum number of countries to block is
+fifteen. The maximum number of countries since version 3.25 is 31. All rules can
+be listed with
 
     sudo iptables -L --line-numbers
     sudo ip6tables -L --line-numbers

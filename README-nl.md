@@ -202,11 +202,9 @@ Test de installatie met
 WAARSCHUWING: De volgende commando's kunnen jou en alle anderen van je systeem
 buitensluiten!
 
-Zoekde landcodes op van de te blokkeren landen op https://db-ip.com/faq.php
+Zoek de landcodes op van de te blokkeren landen op https://db-ip.com/faq.php
 en let op dat er ook een aantal extra codes beschikbaar zijn. Gebruik de codes
-in plaats van `XX,YY` hieronder. Up to and including version 3.23, the maximum
-number of countries to block is fifteen. The maximum number of countries for
-newer versions is 31.
+in plaats van `XX,YY` hieronder. Een voorbeeld is `BY,IR,KP,RU`.
 
 Blokkeer inkomende netwerkpakketten door deze regels (rules) toe te voegen
 
@@ -218,7 +216,9 @@ Blokkeer ook uitgaande netwerkpakketten door deze regels (rules) toe te voegen
     iptables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
     ip6tables -A OUTPUT -m geoip --dst-cc XX,YY -j DROP
 
-Alle regels (rules) kunnen worden getoond met
+Tot en met versie 3.23 is het maximum aan te blokkeren landen vijftien. Het
+maximaal aantal landen is 31 vanaf versie 3.24. Alle regels (rules) kunnen
+worden getoond met
 
     sudo iptables -L --line-numbers
     sudo ip6tables -L --line-numbers
