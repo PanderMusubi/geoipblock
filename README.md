@@ -161,8 +161,8 @@ maxmind geo IP database. However, that database is now available under another
 URL than xtables-addons expects. Additionally, this version of xtables-addons is
 rather old.
 
-This manual has not have a workaround for the database issue, but contributing
-a workaround is welcome.
+This manual does not yet have a workaround for the database issue, but
+contributing a workaround is welcome.
 
 ## Debian 12 Bookworm
 
