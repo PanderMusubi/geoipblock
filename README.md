@@ -8,9 +8,13 @@ Block network traffic for IP addresses of specific countries.
 (469 – 399 BC) Greek philosopher in Athens
 
 This manual describes how to use xtables-addons to drop incoming and outgoing network
-packages for all ports. See also
+packages for all ports on IP-based geographical location. See also
 https://inai.de/projects/xtables-addons/geoip.php and
 https://codeberg.org/jengelh/xtables-addons for more information.
+
+In case your organization uses network hardware from Sisco Systems, Juniper,
+etc. it is also possible to configure blocking on IP-based geographical
+locations.
 
 (For Debian, see below.)
 

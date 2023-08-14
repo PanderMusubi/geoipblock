@@ -8,9 +8,13 @@ Blokkeer netwerkverkeer op IP-adres voor bepaalde landen.
 Socrates (469 – 399 v.Chr.) Griekse filosoof in Athene
 
 Deze handleiding beschrijft hoe xtables-addons te gebruiken om inkomende en
-uitgaande netwerkpakketten tegen te houden voor alle poorten voor bepaalde
-landen. Zie ook https://inai.de/projects/xtables-addons/geoip.php en
+uitgaande netwerkpakketten tegen te houden voor alle poorten op IP-gebaseerde geografische locatie.
+Zie ook https://inai.de/projects/xtables-addons/geoip.php en
 https://codeberg.org/jengelh/xtables-addons voor meer informatie.
+
+Indien je organisatie netwerkharde gebruikt van Sisco Systems, Juniper, etc. dan
+is het ook mogelijk om blokkeren van IP-gebaseerde geografische locaties daarin
+te configureren.
 
 (Voor Debian, zie verder naar onderen.)
 
