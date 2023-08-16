@@ -170,8 +170,23 @@ het bijdragen van een oplossing is welkom.
 
 ## Debian 12 Bookworm
 
-Deze distributie biedt xtables-addons 3.23. Deze distributie is nog niet
-uitgebracht.
+Deze distributie biedt xtables-addons 3.23. Installeer softwarepakketten met
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd && rm -rf ${workdir}
+
+en geef dat bestand uitvoeringsrechten met
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
 
 ## Debian 11 Bullseye
 
