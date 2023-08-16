@@ -12,7 +12,7 @@ uitgaande netwerkpakketten tegen te houden voor alle poorten op IP-gebaseerde ge
 Zie ook https://inai.de/projects/xtables-addons/geoip.php en
 https://codeberg.org/jengelh/xtables-addons voor meer informatie.
 
-Indien je organisatie netwerkharde gebruikt van Sisco Systems, Juniper, etc. dan
+Indien je organisatie netwerkhardwae gebruikt van Sisco Systems, Juniper, etc. dan
 is het ook mogelijk om blokkeren van IP-gebaseerde geografische locaties daarin
 te configureren.
 
