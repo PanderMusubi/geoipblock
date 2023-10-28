@@ -168,6 +168,26 @@ xtables-addons nogal oud.
 Deze handleiding heeft nog geen oplossing voor het issue met de database, maar
 het bijdragen van een oplossing is welkom.
 
+## Debian 13 Trixie
+
+Deze distributie biedt xtables-addons 3.24. Installeer softwarepakketten met
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd && rm -rf ${workdir}
+
+en geef dat bestand uitvoeringsrechten met
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
 ## Debian 12 Bookworm
 
 Deze distributie biedt xtables-addons 3.23. Installeer softwarepakketten met
