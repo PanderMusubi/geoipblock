@@ -18,6 +18,26 @@ locations.
 
 (For Debian, see below.)
 
+## Ubuntu 23.10 Mantic Minotaur
+
+This distribution offers xtables-addons 3.24. Install software packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
 ## Ubuntu 23.04 Lunar Lobster
 
 This distribution offers xtables-addons 3.23. Install software packages with
@@ -61,26 +81,6 @@ and give that file execution rights with
 ## Ubuntu 22.04 LTS Jammy Jellyfish
 
 This distribution offers xtables-addons 3.19. Install software packages with
-
-    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
-    sudo mkdir /usr/share/xt_geoip/
-
-Create the file `/etc/cron.daily/xt_geoip` containing
-
-    #!/bin/sh -e
-    workdir=$(mktemp -d)
-    cd ${workdir}
-    /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
-    cd && rm -rf ${workdir}
-
-and give that file execution rights with
-
-    sudo chmod a+x /etc/cron.daily/xt_geoip
-
-## Ubuntu 21.04 Hirsute Hippo
-
-This distribution offers xtables-addons 3.13. Install software packages with
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
