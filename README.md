@@ -18,6 +18,26 @@ locations.
 
 (For Debian, see below.)
 
+## Ubuntu 24.04 LTS Noble Numbat
+
+This distribution offers xtables-addons 3.25. Install software packages with
+
+    sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
+    sudo mkdir /usr/share/xt_geoip/
+
+Create the file `/etc/cron.daily/xt_geoip` containing
+
+    #!/bin/sh -e
+    workdir=$(mktemp -d)
+    cd ${workdir}
+    /usr/libexec/xtables-addons/xt_geoip_dl
+    /usr/libexec/xtables-addons/xt_geoip_build -s
+    cd && rm -rf ${workdir}
+
+and give that file execution rights with
+
+    sudo chmod a+x /etc/cron.daily/xt_geoip
+
 ## Ubuntu 23.10 Mantic Minotaur
 
 This distribution offers xtables-addons 3.24. Install software packages with
@@ -170,7 +190,7 @@ contributing a workaround is welcome.
 
 ## Debian 13 Trixie
 
-This distribution offers xtables-addons 3.24. Install software packages with
+This distribution offers xtables-addons 3.25. Install software packages with
 
     sudo apt-get install -y xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo mkdir /usr/share/xt_geoip/
