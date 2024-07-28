@@ -12,7 +12,7 @@ packages for all ports on IP-based geographical location. See also
 https://inai.de/projects/xtables-addons/geoip.php and
 https://codeberg.org/jengelh/xtables-addons for more information.
 
-In case your organization uses network hardware from Sisco Systems, Juniper,
+In case your organization uses network hardware from Cisco Systems, Juniper,
 etc. it is also possible to configure blocking on IP-based geographical
 locations.
 
