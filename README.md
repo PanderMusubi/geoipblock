@@ -254,7 +254,6 @@ Test the installation with
 
     sudo modprobe xt_geoip
     lsmod | grep ^xt_geoip
-    sudo iptables -m geoip -h
     sudo /etc/cron.daily/xt_geoip
     ls /usr/share/xt_geoip/
 
@@ -262,7 +261,7 @@ WARNING: The following commands can lock you and all others out of your machine!
 
 Look up the country codes of the countries to block at https://db-ip.com/faq.php
 and note there are also some additional codes available. Use the codes instead
-of `XX,YY` below. An example is `BY,IR,KP,RU`.
+of `XX,YY` below. An example is `BY,CH,HK,IR,KP,RU`.
 
 Block incoming network packages by adding these rules
 
@@ -318,7 +317,7 @@ This can result in an empty file or something that looks like
     COMMIT
     # Completed on ...
 
-Change both files by only adding these two lines
+Only if the lines with `-I INPUT -m geoip ... -j DROP` of `-A OUTPUT -m geoip ... -j DROP` are missing continue with the following edit instruction. Change both files by only adding these two lines
 
     *filter
     :INPUT ACCEPT [0:0]
@@ -338,18 +337,6 @@ Check the resulting changes with
 
     sudo iptables -L -v
     sudo ip6tables -L -v
-
-## Optimization
-
-Replace the last line of the file `/etc/cron.daily/xt_geoip` with
-
-    cd /usr/share/xt_geoip/ && rm $(ls|grep -v XX|grep -v YY) && rm -rf ${workdir}
-
-which removes files for countries that are not to be blocked.
-
-QUESTION: Using `rm !(XX.iv?|YY.iv?)` in this cron file results in the error
-`Syntax error: "(" unexpected`, hence the use of `grep`. Contribution how to fix
-this is welcome.
 
 ## Deinstallation
 
