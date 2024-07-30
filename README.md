@@ -31,7 +31,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -51,7 +51,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -71,7 +71,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -91,7 +91,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -111,7 +111,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -130,7 +130,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -150,7 +150,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -171,7 +171,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
-    /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
+    /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/ > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -201,7 +201,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -221,7 +221,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -241,7 +241,7 @@ Create the file `/etc/cron.daily/xt_geoip` containing
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 and give that file execution rights with
@@ -254,7 +254,7 @@ Test the installation with
 
     sudo modprobe xt_geoip
     lsmod | grep ^xt_geoip
-    sudo /etc/cron.daily/xt_geoip
+    sudo /etc/cron.daily/xt_geoip; echo $?
     ls /usr/share/xt_geoip/
 
 WARNING: The following commands can lock you and all others out of your machine!

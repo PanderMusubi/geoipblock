@@ -31,7 +31,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -51,7 +51,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -71,7 +71,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -91,7 +91,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -111,7 +111,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -130,7 +130,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -150,7 +150,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -171,7 +171,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/lib/xtables-addons/xt_geoip_dl
-    /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/
+    /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip/ > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -201,7 +201,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -221,7 +221,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
@@ -241,7 +241,7 @@ Maak het bestand `/etc/cron.daily/xt_geoip` met daarin
     workdir=$(mktemp -d)
     cd ${workdir}
     /usr/libexec/xtables-addons/xt_geoip_dl
-    /usr/libexec/xtables-addons/xt_geoip_build -s
+    /usr/libexec/xtables-addons/xt_geoip_build -s > /dev/null
     cd && rm -rf ${workdir}
 
 en geef dat bestand uitvoeringsrechten met
