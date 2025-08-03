@@ -344,7 +344,7 @@ Deinstallations can be done with
 
     sudo apt-get purge xtables-addons-common libtext-csv-xs-perl libnet-cidr-lite-perl
     sudo apt-get -y autoremove
-    sudo rm -rf /usr/share/xt_geoip/
+    sudo rm -rf /etc/cron.daily/xt_geoip /usr/share/xt_geoip/
 
 ## Troubleshooting
 
